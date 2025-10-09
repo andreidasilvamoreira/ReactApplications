@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('pedidos', function (Blueprint $table) {
             $table->id();
             $table->enum('status', ['pendente', 'concluido', 'cancelado'])->default('pendente');
-            $table->decimal('total');
+            $table->decimal('total', 10,2);
             $table->enum('metodo_pagamento', ['pix', 'cartao', 'boleto']);
             $table->text('endereco_entrega', 200);
             $table->timestamp('data_pedido');

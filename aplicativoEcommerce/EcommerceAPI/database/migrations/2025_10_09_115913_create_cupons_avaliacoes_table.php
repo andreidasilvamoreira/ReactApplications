@@ -11,12 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('itens_pedidos', function (Blueprint $table) {
+        Schema::create('cupons_avaliacoes', function (Blueprint $table) {
             $table->id();
-            $table->int('quantidade');
-            $table->decimal('preco_unitario',10,2);
-            $table->decimal('subtotal',10,2);
-            $table->foreignId('pedidos_id')->constrained('pedidos')->onDelete('cascade');
+            $table->int('nota');
+            $table->text('comentario',200);
+            $table->foreignId('usuarios_id')->constrained('usuarios')->onDelete('cascade');
             $table->foreignId('produtos_id')->constrained('produtos')->onDelete('cascade');
         });
     }
@@ -26,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('itens_pedidos');
+        Schema::dropIfExists('cupons_avaliacoes');
     }
 };

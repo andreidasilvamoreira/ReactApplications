@@ -11,15 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('produtos', function (Blueprint $table) {
+        Schema::create('cupons_categorias', function (Blueprint $table) {
             $table->id();
             $table->string('nome', 45);
             $table->text('descricao', 200);
-            $table->decimal('preco', 10,2);
-            $table->integer('estoque');
-            $table->string('imagem', 255);
-            $table->enum('status', ['ativo', 'inativo'])->default('ativo');
-            $table->foreignId('categorias_id')->constrained('categorias')->onDelete('cascade');
         });
     }
 
@@ -28,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('produtos');
+        Schema::dropIfExists('cupons_categorias');
     }
 };
