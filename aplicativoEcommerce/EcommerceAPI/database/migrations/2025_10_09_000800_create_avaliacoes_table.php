@@ -11,10 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('cupons_categorias', function (Blueprint $table) {
+        Schema::create('avaliacoes', function (Blueprint $table) {
             $table->id();
-            $table->string('nome', 45);
-            $table->text('descricao', 200);
+            $table->integer('nota');
+            $table->text('comentario',200);
+            $table->foreignId('usuarios_id')->constrained('usuarios')->onDelete('cascade');
+            $table->foreignId('produtos_id')->constrained('produtos')->onDelete('cascade');
         });
     }
 
@@ -23,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('cupons_categorias');
+        Schema::dropIfExists('avaliacoes');
     }
 };

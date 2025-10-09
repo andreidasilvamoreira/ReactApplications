@@ -19,7 +19,7 @@ return new class extends Migration
             $table->text('endereco_entrega', 200);
             $table->timestamp('data_pedido');
             $table->enum('status_pagamento', ['pendente', 'pago', 'falhou', 'estornado'])->default('pendente');
-            $table->foreignId('usuarios_id')->constrained('usuarios_id')->onDelete('cascade');
+            $table->foreignId('usuarios_id')->constrained('usuarios')->onDelete('cascade');
         });
     }
 
