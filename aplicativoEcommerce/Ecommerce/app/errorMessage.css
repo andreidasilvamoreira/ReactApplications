@@ -1,0 +1,49 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #f8d7da, #ffe5e5);
+  color: #b30000;
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+  padding: 2rem;
+}
+
+.error-container .error-icon {
+  font-size: 5rem;
+  margin-bottom: 1rem;
+}
+
+.error-container h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.error-container p {
+  font-size: 1.2rem;
+  max-width: 400px;
+}
+
+.error-container button {
+  margin-top: 1.5rem;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #b30000;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.error-container button:hover {
+  background-color: #ff4d4d;
+}

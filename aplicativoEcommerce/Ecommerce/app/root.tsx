@@ -6,6 +6,9 @@ import {
   ScrollRestoration,
 } from "react-router";
 
+import './errorMessage.css';
+
+
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pt-BR">
@@ -37,9 +40,13 @@ export default function App() {
 
 export function ErrorBoundary() {
   return (
-    <main>
-      <h1>Ocorreu um erro.</h1>
-      <p>Tente novamente mais tarde.</p>
+    <main className="error-container">
+      <div className="error-icon">
+        <i className="fas fa-exclamation-triangle"></i>
+      </div>
+      <h1>Ops! Algo deu errado.</h1>
+      <p>Não conseguimos processar sua solicitação agora. Por favor, tente novamente mais tarde.</p>
+      <button onClick={() => window.location.reload()}>Tentar novamente</button>
     </main>
   );
 }
