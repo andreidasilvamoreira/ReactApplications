@@ -19,7 +19,7 @@ return new class extends Migration
             $table->integer('estoque');
             $table->string('imagem', 255);
             $table->enum('status', ['ativo', 'inativo'])->default('ativo');
-            $table->foreignId('categorias_id')->constrained('categorias')->onDelete('cascade');
+            $table->foreignId('categoria_id')->constrained('categorias')->onDelete('cascade');
         });
     }
 

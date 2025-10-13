@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->integer('nota');
             $table->text('comentario',200);
-            $table->foreignId('usuarios_id')->constrained('usuarios')->onDelete('cascade');
-            $table->foreignId('produtos_id')->constrained('produtos')->onDelete('cascade');
+            $table->foreignId('usuario_id')->constrained('usuarios')->onDelete('cascade');
+            $table->foreignId('produto_id')->constrained('produtos')->onDelete('cascade');
         });
     }
 

@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('estado',45);
             $table->string('cep',45);
             $table->string('complemento',45);
-            $table->foreignId('usuarios_id')->constrained('usuarios')->onDelete('cascade');
+            $table->foreignId('usuario_id')->constrained('usuarios')->onDelete('cascade');
         });
     }
 

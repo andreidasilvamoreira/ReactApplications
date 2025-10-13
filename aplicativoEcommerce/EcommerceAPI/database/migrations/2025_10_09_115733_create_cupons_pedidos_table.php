@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('cupons_pedidos', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('cupons_id')->constrained('cupons')->onDelete('cascade');
-            $table->foreignId('pedidos_id')->constrained('pedidos')->onDelete('cascade');
+            $table->foreignId('cupon_id')->constrained('cupons')->onDelete('cascade');
+            $table->foreignId('pedido_id')->constrained('pedidos')->onDelete('cascade');
         });
     }
 
