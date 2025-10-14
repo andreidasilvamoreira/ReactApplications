@@ -10,7 +10,7 @@ class Produto extends Model
     use HasFactory;
 
     protected $table = 'produtos';
-    public $timestamp = false;
+    public $timestamps = false;
 
     protected $fillable = [
         'nome',

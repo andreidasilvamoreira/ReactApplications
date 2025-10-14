@@ -11,7 +11,7 @@ class Endereco extends Model
 
     protected $table = 'endereco';
 
-    public $timestamp=false;
+    public $timestamps = false;
 
     protected $fillable = [
         'usuario_id',

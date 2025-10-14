@@ -11,7 +11,7 @@ class ItemPedido extends Model
     use HasFactory;
 
     protected $table = 'itens_pedido';
-    public $timestamp = false;
+    public $timestamps = false;
     protected $fillable = [
         'pedido_id',
         'produto_id',

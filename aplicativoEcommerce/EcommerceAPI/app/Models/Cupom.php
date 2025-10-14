@@ -11,7 +11,7 @@ class Cupom extends Model
 
     protected $table = 'cupoms';
 
-    public $timestamp = false;
+    public $timestamps = false;
 
     protected $fillable = [
         'codigo',

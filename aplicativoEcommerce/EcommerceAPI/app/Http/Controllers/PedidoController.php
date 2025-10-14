@@ -9,15 +9,36 @@ class PedidoController extends Controller
 {
     public function index()
     {
-        return Pedido::all();
+        $pedidos = Pedido::all();
+        return response()->json($pedidos);
     }
+    public function store(Request $request)
+    {
+        $validated = $request->validate([
+            'usuario_id' => 'required|exists:usuarios,id|integer',
+            'status' => 'required|in:pendente,concluido,cancelado',
+            'total' => 'required|numeric|min:0',
+            'metodo_pagamento' => 'required|in:pix,cartao,boleto',
+            'endereco_entrega' => 'required|string|max:200',
+            'data_pedido' => 'required|date',
+            'status_pagamento' => 'required|in:pendente,pago,falhou,estornado',
+        ]);
 
+        $pedido = Pedido::create($validated);
+
+        return response()->json([
+            'message' => 'Pedido criado com sucesso',
+            'pedido' => $pedido
+        ], 201);
+    }
     public function show($id)
     {
         $pedido = Pedido::findOrFail($id);
 
         return response()->json($pedido);
     }
+
+
 
     public function update(Request $request, $id)
     {

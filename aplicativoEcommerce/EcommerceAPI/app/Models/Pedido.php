@@ -10,7 +10,7 @@ class Pedido extends Model
     use HasFactory;
 
     protected $table = 'pedidos';
-    public $timestamp = false;
+    public $timestamps = false;
     protected $fillable = [
         'usuario_id',
         'status',
@@ -18,6 +18,7 @@ class Pedido extends Model
         'metodo_pagamento',
         'endereco_entrega',
         'data_entrega',
+        'data_pedido',
         'status_pagamento',
     ];
 
