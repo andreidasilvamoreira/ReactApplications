@@ -19,6 +19,7 @@ class Produto extends Model
         'estoque',
         'imagem',
         'status',
+        'categoria_id'
     ];
 
     public function categoria()
