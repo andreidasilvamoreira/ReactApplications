@@ -9,7 +9,7 @@ class PedidoController extends Controller
 {
     public function index()
     {
-        $pedidos = Pedido::all();
+        $pedidos = Pedido::with(['usuario', 'itensPedido.produto'])->get();
         return response()->json($pedidos);
     }
     public function store(Request $request)
