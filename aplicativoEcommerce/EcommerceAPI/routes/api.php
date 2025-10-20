@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\ProdutoController;
 use Illuminate\Http\Request;
@@ -21,3 +22,10 @@ Route::prefix('produtos')->group(function () {
     Route::put('/{id}', [ProdutoController::class, 'update']);
     Route::delete('/{id}', [ProdutoController::class, 'destroy']);
 });
+
+Route::post('/login', [AuthController::class, 'login']);
+Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:sanctum');
+
+Route::get('/user', function (Request $request) {
+    return $request->user();
+})->middleware('auth:sanctum');
