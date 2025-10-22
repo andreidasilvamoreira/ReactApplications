@@ -5,39 +5,34 @@ import './carrinho.css'
 export default function Table() {
     const { pedidos } = useContext(PedidoContext)
     return (
-        <div className="tabela-container">
-            <div className="tabela-header">
-                <h2>📦 Pedidos</h2>
-                <button className="btn-novo">+ Novo Pedido</button>
-            </div>
+        <>
+            <h1 className='h1 carrinho'>🛒 Carrinho</h1>
+            <div className="tabela-container">
                 <table className="tabela-pedidos">
                     <thead>
                         <tr>
-                            <th>ID</th>
-                            <th>Cliente</th>
-                            <th>Data</th>
+                            <th>Produto</th>
+                            <th>Preço</th>
+                            <th>Quantidade</th>
                             <th>Valor Total</th>
-                            <th>Status</th>
-                            <th>Ações</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {pedidos.map(pedido => (
-                            <tr key={pedido.id}>
-                                <td>{pedido.id}</td>
-                                <td>{pedido.usuario?.nome || "Cliente não encontrado"}</td>
-                                <td>{pedido.data}</td>
-                                <td>R$ {pedido.total}</td>
-                                <td>{pedido.status_pagamento}</td>
-                                <td>
-                                    <button className="btn-editar">Editar</button>
-                                    <button className="btn-excluir">Excluir</button>
-                                    <button className="btn-ver">Ver</button>
-                                </td>
-                            </tr>
-                        ))}
+                        {pedidos.map(pedido => {
+                            pedido.itens_pedido?.map(item => (
+                                <tr key={item.id}>
+                                    <td>{item.produto?.nome || "Produto não encontrado"}</td>
+                                    <td>{item.quantidade}</td>
+                                    <td>{pedido.total}</td>
+                                    <td>R$ {pedido.total}</td>
+
+                                </tr>
+                            ))
+                        }
+                        )}
                     </tbody>
                 </table>
             </div>
-            )
+        </>
+    )
 }

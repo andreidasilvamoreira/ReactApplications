@@ -5,6 +5,7 @@
     border-radius: 0.5vh;
     display: flex;
     justify-content: space-between;
+    font-family: "Roboto", sans-serif;
 }
 
 .logo {
@@ -61,4 +62,3 @@
     font-size: 3vh;
     color: #535353;
 }
-
