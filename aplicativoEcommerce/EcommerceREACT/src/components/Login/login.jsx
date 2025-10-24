@@ -1,21 +1,37 @@
-import { useState } from "react"
-import './login.css'
+import { useState } from "react";
+import { useNavigate } from "react-router-dom"
+import './login.css';
 
 export default function LoginForm() {
+    const [usuario, setUsuario] = useState("");
+    const [senha, setSenha] = useState("");
+    const [erro, setErro] = useState("");
+    const navigate = useNavigate()
 
-    const [usuario, setUsuario] = useState("")
-    const [senha, setSenha] = useState("")
-
-    function handleChangeUser(e) {
-        setUsuario(e.target.value)
-    }
-    function handleChangePassword(e) {
-        setSenha(e.target.value)
-    }
-
-     function handleSubmit(e) {
+    async function handleSubmit(e) {
         e.preventDefault();
-        console.log({ usuario, senha });
+        setErro("");
+
+        try {
+            const response = await fetch("http://localhost:8000/api/login", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    email: usuario,
+                    password: senha,
+                }),
+                credentials: "include",
+            });
+
+            if (!response.ok) {
+                throw new Error("Credenciais inválidas");
+            }
+            const data = await response.json();
+            console.log("Login realizado:", data);
+            navigate('/home')
+        } catch (error) {
+            setErro(error.message);
+        }
     }
 
     return (
@@ -24,21 +40,24 @@ export default function LoginForm() {
                 <form onSubmit={handleSubmit}>
                     <label>Usuário</label>
                     <input
-                        type="text"
+                        type="user"
                         value={usuario}
-                        onChange={handleChangeUser}
-                        placeholder="Digite seu usuário"
+                        onChange={(e) => setUsuario(e.target.value)}
+                        placeholder="Digite seu e-mail"
+                        required
                     />
                     <label>Senha</label>
                     <input
                         type="password"
                         value={senha}
-                        onChange={handleChangePassword}
+                        onChange={(e) => setSenha(e.target.value)}
                         placeholder="Digite sua senha"
+                        required
                     />
                     <button type="submit">Entrar</button>
+                    {erro && <p style={{ color: "red", marginTop: "10px" }}>{erro}</p>}
                 </form>
             </div>
         </div>
-    )
+    );
 }
