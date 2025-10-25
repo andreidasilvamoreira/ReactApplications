@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\EnderecoController;
 use App\Http\Controllers\ItemPedidoController;
 use App\Http\Controllers\PedidoController;

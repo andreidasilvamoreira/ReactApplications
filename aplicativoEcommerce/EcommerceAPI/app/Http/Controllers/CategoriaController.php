@@ -15,7 +15,9 @@ class CategoriaController extends Controller
 
     public function store(Request $request)
     {
-        $validated = $request->validate([]);
+        $validated = $request->validate([
+            'nome' => 'required|string|max:100|unique:categorias,nome',
+            'descricao' => 'nullable|string|max:255',]);
         $categoria = Categoria::create($validated);
         return response()->json([
             'message' => 'Produto criado com sucesso',
@@ -48,7 +50,10 @@ class CategoriaController extends Controller
         if (!$categoria) {
             return response()->json(['mensagem' => 'Categoria não encontrada'], 404);
         }
-        $validated = $request->validate([]);
+        $validated = $request->validate ([
+            'nome' => 'required|string|max:100',
+            'descricao' => 'nullable|string|max:255'
+            ]);
         if (empty($validated)) {
             return response()->json([
                 'message' => 'Pelo menos um campo deve ser enviado para atualização.'

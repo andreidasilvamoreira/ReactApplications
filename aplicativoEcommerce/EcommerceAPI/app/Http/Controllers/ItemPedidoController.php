@@ -20,7 +20,7 @@ class ItemPedidoController extends Controller
             'produto_id' => 'required|integer|exists:produtos,id',
             'quantidade' => 'required|integer|min:1',
             'preco_unitario' => 'required|numeric|min:0',
-            'sub_total' => 'nullable|numeric|min:0',
+            'subtotal' => 'nullable|numeric|min:0',
         ]);
 
         $itemPedido = ItemPedido::create($validated);
@@ -57,7 +57,7 @@ class ItemPedidoController extends Controller
             'produto_id' => 'required|integer|exists:produtos,id',
             'quantidade' => 'required|integer|min:1',
             'preco_unitario' => 'required|numeric|min:0',
-            'sub_total' => 'nullable|numeric|min:0',
+            'subtotal' => 'nullable|numeric|min:0',
         ]);
 
 
