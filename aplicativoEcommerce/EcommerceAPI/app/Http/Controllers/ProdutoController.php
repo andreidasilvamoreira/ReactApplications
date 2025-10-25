@@ -33,8 +33,10 @@ class ProdutoController extends Controller
     }
     public function show($id)
     {
-        $produto = Produto::findOrFail($id);
-
+        $produto = Produto::find($id);
+        if (!$produto) {
+            return response()->json(['mensagem' => 'Produto não encontrado'], 404);
+        }
         return response()->json($produto);
     }
 
@@ -42,8 +44,10 @@ class ProdutoController extends Controller
 
     public function update(Request $request, $id)
     {
-        $produto = Produto::findOrFail($id);
-
+        $produto = Produto::find($id);
+        if (!$produto) {
+            return response()->json(['mensagem' => 'Produto não encontrado'], 404);
+        }
         $validated = $request->validate([
             'nome' => 'sometimes|string|max:45',
             'descricao' => 'sometimes|string|max:200',
@@ -68,8 +72,10 @@ class ProdutoController extends Controller
 
     public function destroy($id)
     {
-        $produto = Produto::findOrFail($id);
-
+        $produto = Produto::find($id);
+        if (!$produto) {
+            return response()->json(['mensagem' => 'Produto não encontrado'], 404);
+        }
         $produto->delete();
 
         return response()->json(['message' => 'Produto excluído com sucesso']);

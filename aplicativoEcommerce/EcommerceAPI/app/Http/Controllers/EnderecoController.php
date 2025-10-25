@@ -34,8 +34,10 @@ class EnderecoController extends Controller
     }
     public function show($id)
     {
-        $endereco = Endereco::findOrFail($id);
-
+        $endereco = Endereco::find($id);
+        if (!$endereco) {
+            return response()->json(['mensagem' => 'Endereço não encontrado'], 404);
+        }
         return response()->json($endereco);
     }
 
@@ -43,8 +45,10 @@ class EnderecoController extends Controller
 
     public function update(Request  $request, $id)
     {
-        $endereco = Endereco::findOrFail($id);
-
+        $endereco = Endereco::find($id);
+        if (!$endereco) {
+            return response()->json(['mensagem' => 'Endereço não encontrado'], 404);
+        }
         $validated = $request->validate([
             'usuario_id' => 'required|exists:usuarios,id|integer',
             'rua' => 'required|string|max:200',
@@ -70,8 +74,10 @@ class EnderecoController extends Controller
 
     public function destroy($id)
     {
-        $endereco = Endereco::findOrFail($id);
-
+        $endereco = Endereco::find($id);
+        if (!$endereco) {
+            return response()->json(['mensagem' => 'Endereço não encontrado'], 404);
+        }
         $endereco->delete();
 
         return response()->json(['message' => 'Endereço excluído com sucesso']);

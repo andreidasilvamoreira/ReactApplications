@@ -31,8 +31,10 @@ class UsuarioController extends Controller
     }
     public function show($id)
     {
-        $usuario = Usuario::findOrFail($id);
-
+        $usuario = Usuario::find($id);
+        if (!$usuario) {
+            return response()->json(['mensagem' => 'Usuário não encontrado'], 404);
+        }
         return response()->json($usuario);
     }
 
@@ -40,8 +42,10 @@ class UsuarioController extends Controller
 
     public function update(Request $request, $id)
     {
-        $usuario = Usuario::findOrFail($id);
-
+        $usuario = Usuario::find($id);
+        if (!$usuario) {
+            return response()->json(['mensagem' => 'Usuário não encontrado'], 404);
+        }
         $validated = $request->validate([
             'nome' => ['required', 'string', 'max:100'],
             'email' => ['required', 'email', 'max:150', 'unique:usuarios,email'],
@@ -64,8 +68,10 @@ class UsuarioController extends Controller
 
     public function destroy($id)
     {
-        $usuario = Usuario::findOrFail($id);
-
+        $usuario = Usuario::find($id);
+        if (!$usuario) {
+            return response()->json(['mensagem' => 'Usuário não encontrado'], 404);
+        }
         $usuario->delete();
 
         return response()->json(['message' => 'Usuario excluído com sucesso']);

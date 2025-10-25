@@ -33,8 +33,10 @@ class PedidoController extends Controller
     }
     public function show($id)
     {
-        $pedido = Pedido::findOrFail($id);
-
+        $pedido = Pedido::find($id);
+        if (!$pedido) {
+            return response()->json(['mensagem' => 'Pedido não encontrado'], 404);
+        }
         return response()->json($pedido);
     }
 
@@ -42,8 +44,10 @@ class PedidoController extends Controller
 
     public function update(Request $request, $id)
     {
-        $pedido = Pedido::findOrFail($id);
-
+        $pedido = Pedido::find($id);
+        if (!$pedido) {
+            return response()->json(['mensagem' => 'Pedido não encontrado'], 404);
+        }
         $validated = $request->validate([
             'usuario_id' => 'sometimes|exists:usuarios,id|integer',
             'status' => 'sometimes|in:pendente,concluido,cancelado',
@@ -68,8 +72,10 @@ class PedidoController extends Controller
 
     public function destroy($id)
     {
-        $pedido = Pedido::findOrFail($id);
-
+        $pedido = Pedido::find($id);
+        if (!$pedido) {
+            return response()->json(['mensagem' => 'Pedido não encontrado'], 404);
+        }
         $pedido->delete();
 
         return response()->json(['message' => 'Pedido excluído com sucesso']);
