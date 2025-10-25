@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\EnderecoController;
+use App\Http\Controllers\ItemPedidoController;
 use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\ProdutoController;
 use App\Http\Controllers\UsuarioController;
@@ -25,7 +26,7 @@ Route::prefix('produtos')->group(function () {
     Route::delete('/{id}', [ProdutoController::class, 'destroy']);
 });
 
-Route::prefix('endereco')->group(function () {
+Route::prefix('enderecos')->group(function () {
     Route::get('/', [EnderecoController::class, 'index']);
     Route::post('/', [EnderecoController::class, 'store']);
     Route::get('/{id}', [EnderecoController::class, 'show']);
@@ -33,7 +34,7 @@ Route::prefix('endereco')->group(function () {
     Route::delete('/{id}', [EnderecoController::class, 'destroy']);
 });
 
-Route::prefix('usuario')->group(function () {
+Route::prefix('usuarios')->group(function () {
     Route::get('/', [UsuarioController::class, 'index']);
     Route::post('/', [UsuarioController::class, 'store']);
     Route::get('/{id}', [UsuarioController::class, 'show']);
@@ -47,6 +48,14 @@ Route::prefix('categorias')->group(function () {
     Route::get('/{id}', [CategoriaController::class, 'show']);
     Route::put('/{id}', [CategoriaController::class, 'update']);
     Route::delete('/{id}', [CategoriaController::class, 'destroy']);
+});
+
+Route::prefix('itensPedidos')->group(function () {
+    Route::get('/', [ItemPedidoController::class, 'index']);
+    Route::post('/', [ItemPedidoController::class, 'store']);
+    Route::get('/{id}', [ItemPedidoController::class, 'show']);
+    Route::put('/{id}', [ItemPedidoController::class, 'update']);
+    Route::delete('/{id}', [ItemPedidoController::class, 'destroy']);
 });
 
 Route::post('/login', [AuthController::class, 'login']);
