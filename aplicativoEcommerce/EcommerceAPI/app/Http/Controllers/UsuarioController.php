@@ -54,12 +54,6 @@ class UsuarioController extends Controller
             'tipo' => ['sometimes', 'in:admin,cliente'],
         ]);
 
-        if (empty($validated)) {
-            return response()->json([
-                'message' => 'Pelo menos um campo deve ser enviado para atualização.'
-            ], 422);
-        }
-
         $usuario->update($validated);
 
         return response()->json($usuario);

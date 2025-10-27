@@ -54,11 +54,6 @@ class CategoriaController extends Controller
             'nome' => 'required|string|max:100',
             'descricao' => 'nullable|string|max:255'
             ]);
-        if (empty($validated)) {
-            return response()->json([
-                'message' => 'Pelo menos um campo deve ser enviado para atualização.'
-            ], 422);
-        }
         $categoria->update($validated);
         return response()->json($categoria);
     }

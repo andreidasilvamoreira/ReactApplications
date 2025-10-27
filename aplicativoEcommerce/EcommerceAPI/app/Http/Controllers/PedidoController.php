@@ -58,12 +58,6 @@ class PedidoController extends Controller
             'status_pagamento' => 'sometimes|in:pendente,pago,falhou,estornado',
         ]);
 
-        if (empty($validated)) {
-            return response()->json([
-                'message' => 'Pelo menos um campo deve ser enviado para atualização.'
-            ], 422);
-        }
-
         $pedido->update($validated);
 
         return response()->json($pedido);

@@ -58,12 +58,6 @@ class ProdutoController extends Controller
             'categoria_id' => 'sometimes|exists:categorias,id|integer',
         ]);
 
-        if (empty($validated)) {
-            return response()->json([
-                'message' => 'Pelo menos um campo deve ser enviado para atualização.'
-            ], 422);
-        }
-
         $produto->update($validated);
 
         return response()->json($produto);

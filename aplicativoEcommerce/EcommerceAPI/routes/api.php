@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AvaliacaoController;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\EnderecoController;
 use App\Http\Controllers\ItemPedidoController;
@@ -57,6 +58,14 @@ Route::prefix('itensPedidos')->group(function () {
     Route::get('/{id}', [ItemPedidoController::class, 'show']);
     Route::put('/{id}', [ItemPedidoController::class, 'update']);
     Route::delete('/{id}', [ItemPedidoController::class, 'destroy']);
+});
+
+Route::prefix('avaliacao')->group(function () {
+    Route::get('/', [AvaliacaoController::class, 'index']);
+    Route::post('/', [AvaliacaoController::class, 'store']);
+    Route::get('/{id}', [AvaliacaoController::class, 'show']);
+    Route::put('/{id}', [AvaliacaoController::class, 'update']);
+    Route::delete('/{id}', [AvaliacaoController::class, 'destroy']);
 });
 
 Route::post('/login', [AuthController::class, 'login']);

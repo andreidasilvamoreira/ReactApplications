@@ -60,12 +60,6 @@ class EnderecoController extends Controller
             'complemento' => 'nullable|string|max:100',
         ]);
 
-        if (empty($validated)) {
-            return response()->json([
-                'message' => 'Pelo menos um campo deve ser enviado para atualização.'
-            ], 422);
-        }
-
         $endereco->update($validated);
 
         return response()->json($endereco);

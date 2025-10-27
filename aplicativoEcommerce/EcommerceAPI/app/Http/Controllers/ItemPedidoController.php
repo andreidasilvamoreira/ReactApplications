@@ -60,7 +60,6 @@ class ItemPedidoController extends Controller
             'subtotal' => 'nullable|numeric|min:0',
         ]);
 
-
         $itemPedido->update($validated);
         return response()->json($itemPedido);
     }
