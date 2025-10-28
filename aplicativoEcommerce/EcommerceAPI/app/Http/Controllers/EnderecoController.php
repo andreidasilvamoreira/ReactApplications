@@ -9,7 +9,7 @@ class EnderecoController extends Controller
 {
     public function index()
     {
-        $endereco = Endereco::all();
+        $endereco = Endereco::with('usuario')->get();
         return response()->json($endereco);
     }
     public function store(Request $request)
@@ -34,7 +34,7 @@ class EnderecoController extends Controller
     }
     public function show($id)
     {
-        $endereco = Endereco::find($id);
+        $endereco = Endereco::with('usuario')->find($id);
         if (!$endereco) {
             return response()->json(['mensagem' => 'Endereço não encontrado'], 404);
         }

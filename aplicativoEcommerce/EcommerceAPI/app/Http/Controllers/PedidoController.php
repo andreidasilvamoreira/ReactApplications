@@ -9,7 +9,7 @@ class PedidoController extends Controller
 {
     public function index()
     {
-        $pedidos = Pedido::with(['usuario', 'itensPedido.produto'])->get();
+        $pedidos = Pedido::with(['usuario', 'itensPedido.produto.categoria', 'itensPedido.pedido'])->get();
         return response()->json($pedidos);
     }
     public function store(Request $request)
@@ -33,7 +33,7 @@ class PedidoController extends Controller
     }
     public function show($id)
     {
-        $pedido = Pedido::find($id);
+        $pedido = Pedido::with('usuario', 'itensPedido.produto.categoria', 'itensPedido.pedido')->find($id);
         if (!$pedido) {
             return response()->json(['mensagem' => 'Pedido não encontrado'], 404);
         }

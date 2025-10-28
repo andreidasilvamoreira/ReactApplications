@@ -9,7 +9,7 @@ class ProdutoController extends Controller
 {
     public function index()
     {
-        $produto = Produto::all();
+        $produto = Produto::with('categoria')->get();
         return response()->json($produto);
     }
     public function store(Request $request)
@@ -33,7 +33,7 @@ class ProdutoController extends Controller
     }
     public function show($id)
     {
-        $produto = Produto::find($id);
+        $produto = Produto::with('categoria')->find($id);
         if (!$produto) {
             return response()->json(['mensagem' => 'Produto não encontrado'], 404);
         }

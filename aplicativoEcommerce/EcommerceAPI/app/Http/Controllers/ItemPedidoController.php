@@ -9,7 +9,7 @@ class ItemPedidoController extends Controller
 {
     public function index()
     {
-        $itemPedido = ItemPedido::all();
+        $itemPedido = ItemPedido::with('pedido.usuario', 'produto.categoria')->get();
         return response()->json($itemPedido);
     }
 
@@ -29,7 +29,7 @@ class ItemPedidoController extends Controller
 
     public function show($id)
     {
-        $itemPedido = ItemPedido::find($id);
+        $itemPedido = ItemPedido::with('pedido.usuario', 'produto.categoria')->find($id);
         if (!$itemPedido) {
             return response()->json(['mensagem' => 'Item Pedido não encontrado'], 404);
         }

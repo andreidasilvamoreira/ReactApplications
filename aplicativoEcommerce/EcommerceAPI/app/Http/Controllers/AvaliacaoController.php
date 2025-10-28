@@ -9,7 +9,7 @@ class AvaliacaoController extends Controller
 {
     public function index()
     {
-        $avaliacao = Avaliacao::all();
+        $avaliacao = Avaliacao::with('usuario', 'produto.categoria')->get();
         return response()->json($avaliacao);
     }
 
@@ -29,7 +29,7 @@ class AvaliacaoController extends Controller
 
     public function show($id)
     {
-        $avaliacao = Avaliacao::find($id);
+        $avaliacao = Avaliacao::with('usuario', 'produto.categoria')->find($id);
         if (!$avaliacao) {
             return response()->json(['message' => 'Avaliação não encontrada']);
         }
