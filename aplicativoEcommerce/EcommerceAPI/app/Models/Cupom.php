@@ -9,7 +9,7 @@ class Cupom extends Model
 {
     use HasFactory;
 
-    protected $table = 'cupoms';
+    protected $table = 'cupons';
 
     public $timestamps = false;
 

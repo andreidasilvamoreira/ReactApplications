@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AvaliacaoController;
 use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\CupomController;
 use App\Http\Controllers\EnderecoController;
 use App\Http\Controllers\ItemPedidoController;
 use App\Http\Controllers\PedidoController;
@@ -66,6 +67,14 @@ Route::prefix('avaliacao')->group(function () {
     Route::get('/{id}', [AvaliacaoController::class, 'show']);
     Route::put('/{id}', [AvaliacaoController::class, 'update']);
     Route::delete('/{id}', [AvaliacaoController::class, 'destroy']);
+});
+
+Route::prefix('cupom')->group(function () {
+    Route::get('/', [CupomController::class, 'index']);
+    Route::post('/', [CupomController::class, 'store']);
+    Route::get('/{id}', [CupomController::class, 'show']);
+    Route::put('/{id}', [CupomController::class, 'update']);
+    Route::delete('/{id}', [CupomController::class, 'destroy']);
 });
 
 Route::post('/login', [AuthController::class, 'login']);
