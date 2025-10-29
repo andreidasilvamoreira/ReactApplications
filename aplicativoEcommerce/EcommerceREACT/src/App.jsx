@@ -6,6 +6,7 @@ import Login from './pages/Login'
 import { PedidosProvider } from './context/pedidosContext'
 import CarrinhoADM from './PagesADM/CarrinhoADM/carrinhoADM'
 import Carrinho from './pages/carrinho'
+import Register from './pages/register'
 
 function App() {
 
@@ -18,7 +19,8 @@ function App() {
           <Route path="/carrinho" element={<Carrinho />} />
           <Route path="adm/carrinho" element={<CarrinhoADM />} />
           <Route path="/login" element={<Login />} />
-        </Routes>
+          <Route path="/register" element={<Register />}/>
+          </Routes>
       </PedidosProvider>
     </BrowserRouter>
   )

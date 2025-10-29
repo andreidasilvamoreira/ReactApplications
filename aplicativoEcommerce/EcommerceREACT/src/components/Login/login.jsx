@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom"
+import { useNavigate, Link } from "react-router-dom"
 import './login.css';
 
 export default function LoginForm() {
-    const [usuario, setUsuario] = useState("");
+    const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
     const [erro, setErro] = useState("");
     const navigate = useNavigate()
@@ -17,8 +17,8 @@ export default function LoginForm() {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
-                    email: usuario,
-                    password: senha,
+                    email: email,
+                    senha: senha,
                 }),
                 credentials: "include",
             });
@@ -38,12 +38,12 @@ export default function LoginForm() {
         <div className="login-container">
             <div className="login-box">
                 <form onSubmit={handleSubmit}>
-                    <label>Usuário</label>
+                    <label>Email</label>
                     <input
-                        type="user"
-                        value={usuario}
-                        onChange={(e) => setUsuario(e.target.value)}
-                        placeholder="Digite seu e-mail"
+                        type="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        placeholder="Digite seu E-mail"
                         required
                     />
                     <label>Senha</label>
@@ -56,6 +56,10 @@ export default function LoginForm() {
                     />
                     <button type="submit">Entrar</button>
                     {erro && <p style={{ color: "red", marginTop: "10px" }}>{erro}</p>}
+                    <div className="registre-se">
+                        <p>Não tem uma conta?</p>
+                        <Link to="/register">Registre-se</Link>
+                    </div>
                 </form>
             </div>
         </div>
