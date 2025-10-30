@@ -14,6 +14,7 @@
   border-radius: 1.5vh;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   width: 38vh;
+  margin-bottom: 15vh;
   text-align: center;
 }
 
@@ -88,4 +89,26 @@
 
 .auth-footer a:hover {
   text-decoration: underline;
+  color: rgb(28, 112, 196);
+}
+
+.sucesso {
+  color: green;
+  background-color: #e6ffe6; 
+  padding: 10px;    
+  border-radius: 5px;  
+  margin-top: 10px;
+  font-weight: bold;      
+}
+
+.erro {
+  color: rgb(173, 75, 75);          
+  background-color: #ffe6e6;  
+  padding: 10px;              
+  border-radius: 5px;      
+  margin-top: 10px;          
+}
+
+label {
+  margin-left: 0.8vh;
 }

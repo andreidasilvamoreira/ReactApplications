@@ -55,10 +55,9 @@ export default function LoginForm() {
                         required
                     />
                     <button type="submit">Entrar</button>
-                    {erro && <p style={{ color: "red", marginTop: "10px" }}>{erro}</p>}
                     <div className="registre-se">
                         <p>Não tem uma conta?</p>
-                        <Link to="/register">Registre-se</Link>
+                        <a className="a" href="/register">Registre-se</a>
                     </div>
                 </form>
             </div>
