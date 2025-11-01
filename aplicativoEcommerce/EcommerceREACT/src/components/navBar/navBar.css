@@ -1,5 +1,5 @@
 .navbar {
-    background-color: #D9D9D9;
+    background-color: #ffffff;
     align-items: center;
     padding: 2vh;
     border-radius: 0.5vh;
@@ -9,7 +9,6 @@
 }
 
 .logo {
-    background-color: #A0A0A0;
     border-radius: 0.5vh;
     height: 5vh;
     width: 10vw;
@@ -17,12 +16,12 @@
     align-items: center;
     justify-content: center;
     font-size: 3vh;
-    margin-left: 3vh;
+    margin-left: 5vh;
 }
 
 .logoAncora {
     text-decoration: none;
-    color: white;
+    color: rgb(0, 0, 0);
 }
 
 .nav-opcoes {
@@ -30,26 +29,34 @@
     justify-content: space-between;
     gap: 7vh;
     margin-right: 7vh;
+    align-items: center;
 }
 
 .nav-input {
-    border-radius: 1vh;
-    width: 60%;
-    height: 4vh;
-    border: none;
-    outline: none;
-    padding: 1.7vh;
-    color: #535353;
-    font-size: 1.8vh;
+  width: 100%;
+  border-radius: 3vh;
+  height: 6vh;
+  border: 1px solid rgb(116, 114, 114);
+  font-size: 2vh;
+  padding-left: 6vh;
+  padding-right: 5vh; 
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.input-container {
+  position: relative;
+  width: 60%;
+  margin-right: 10vh;
 }
 
 .nav-input:focus {
-    border-color: #999;
-    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+    border-color: #3e3f41;
+    box-shadow: 0 0 0.2vh rgba(36, 33, 46, 0.4);
 }
 
 .nav-input::placeholder {
-    color: #999;
+    color: #a3a2a2;
 }
 
 .login {
@@ -61,4 +68,41 @@
 .fa-solid {
     font-size: 3vh;
     color: #535353;
+}
+
+.icon-login {
+    height: 2.6vh;
+    width: 2.6vh;
+}
+
+.login-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1vh;
+}
+
+.fa-solid {
+    margin-left: 3vh;
+}
+
+.fa-cart-shopping {
+    margin-right: 7vh;
+}
+
+.iconLupa {
+  position: absolute;
+  left: 3vh;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2vh;
+  height: 2vh;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.3s;
+}
+
+
+.iconLupa:hover {
+  opacity: 1;
 }

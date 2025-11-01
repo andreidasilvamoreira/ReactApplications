@@ -6,7 +6,7 @@ export default function Table() {
     const { pedidos } = useContext(PedidoContext)
     return (
         <>
-            <h1 className='h1 carrinho'>🛒 Carrinho</h1>
+            <h1 className='h1-carrinho'>🛒 Carrinho</h1>
             <div className="tabela-container">
                 <table className="tabela-pedidos">
                     <thead>

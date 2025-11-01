@@ -94,8 +94,9 @@ export default function Registrar() {
         <button type="submit">Registrar</button>
 
         <div className="auth-footer">
-          <p>Já tem uma conta?</p>
-          <a href="/login">Entrar</a>
+          <p className="p-registro">Já tem uma conta?</p>
+          <br/>
+          <a href="/login" className="label-entrar">Entrar</a>
         </div>
       </form>
     </div>

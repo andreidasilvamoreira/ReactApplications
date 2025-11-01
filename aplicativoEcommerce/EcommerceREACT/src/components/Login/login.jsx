@@ -56,7 +56,7 @@ export default function LoginForm() {
                     />
                     <button type="submit">Entrar</button>
                     <div className="registre-se">
-                        <p>Não tem uma conta?</p>
+                        <p className="p-login">Não tem uma conta?</p>
                         <a className="a" href="/register">Registre-se</a>
                     </div>
                 </form>
