@@ -21,14 +21,14 @@ h1 {
 }
 
 p {
-    margin-left: 1vh;
+    margin-left: 0.7vh;
     font-size: 3vh;
     font-weight: 300;
 }
 
 h2 {
     font-family: "Roboto", sans-serif;
-    margin-left: 15vh;
+    margin-left: 16.1vh;
     margin-top: 3vh;
 }
 
@@ -39,7 +39,7 @@ h2 {
     width: 22vh;
     height: 6vh;
     cursor: pointer;
-    margin-left: 1vh;
+    margin-left: 0.7vh;
 }
 
 .button-compre:hover {

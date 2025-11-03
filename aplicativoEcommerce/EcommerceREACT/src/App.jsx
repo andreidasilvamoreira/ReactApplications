@@ -6,21 +6,24 @@ import { PedidosProvider } from './context/pedidosContext'
 import CarrinhoADM from './PagesADM/CarrinhoADM/carrinhoADM'
 import Carrinho from './pages/carrinho'
 import Register from './pages/register'
+import { ProdutoProvider } from './context/produtoContext'
 
 function App() {
 
   return (
     <BrowserRouter>
-      <PedidosProvider>
-        <NavBar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/carrinho" element={<Carrinho />} />
-          <Route path="adm/carrinho" element={<CarrinhoADM />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />}/>
+      <ProdutoProvider>
+        <PedidosProvider>
+          <NavBar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/carrinho" element={<Carrinho />} />
+            <Route path="adm/carrinho" element={<CarrinhoADM />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
           </Routes>
-      </PedidosProvider>
+        </PedidosProvider>
+      </ProdutoProvider>
     </BrowserRouter>
   )
 }

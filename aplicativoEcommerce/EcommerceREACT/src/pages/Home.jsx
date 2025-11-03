@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./home.css"
 import exemplo1 from "./../assets/exemplo1.png"
+import HomeProducts from "../components/Home-products/home-products";
 export default function Home() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -37,6 +38,7 @@ export default function Home() {
         <div><img src={exemplo1} alt="imagem de um homem com camiseta bege" className="imgHomem" /></div>
       </div>
       <div><h2>Produtos em Destaque</h2></div>
+      <HomeProducts/>
     </>
   );
 }

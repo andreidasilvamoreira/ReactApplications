@@ -1,6 +1,5 @@
 import { API_Pedidos } from "./config";
 
-// GET – listar todos os pedidos
 export async function getPedidos() {
   const resposta = await fetch(API_Pedidos);
   if (!resposta.ok) throw new Error("Erro ao buscar pedidos");

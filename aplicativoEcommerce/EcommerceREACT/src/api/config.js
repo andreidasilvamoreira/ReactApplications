@@ -1,1 +1,2 @@
 export const API_Pedidos = "http://127.0.0.1:8000/api/pedidos";
+export const API_Produtos = "http://127.0.0.1:8000/api/produtos";
