@@ -7,6 +7,7 @@ import CarrinhoADM from './PagesADM/CarrinhoADM/carrinhoADM'
 import Carrinho from './pages/carrinho'
 import Register from './pages/register'
 import { ProdutoProvider } from './context/produtoContext'
+import Produto from './pages/Produto'
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
         <PedidosProvider>
           <NavBar />
           <Routes>
+            <Route path="/produto/:id" element={<Produto />}></Route>
             <Route path="/" element={<Home />} />
             <Route path="/carrinho" element={<Carrinho />} />
             <Route path="adm/carrinho" element={<CarrinhoADM />} />
