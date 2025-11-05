@@ -17,7 +17,7 @@ export default function Produto() {
     return (
         <>
             <div className="div-pai-produtos">
-                <img src={produto.imagem} alt="" />
+                <img src={produto.imagem} className="imagem-produto" />
 
                 <div >
                     <div className="titulo-icone">
@@ -31,10 +31,11 @@ export default function Produto() {
                         <button className="botao-comprar">Compre Agora</button>
                         <button className="botao-adicionar-carrinho">Adicionar Ao Carrinho<i class="fa-solid fa-cart-plus"></i></button>
                     </div>
+                    <div className="paragrafo-produto"><p>{produto.descricao}</p></div>
+
                 </div>
             </div>
-            <div className="paragrafo-produto"><p>{produto.descricao}</p></div>
-            
+
         </>
     )
 }

@@ -1,6 +1,6 @@
 .div-pai-produtos {
     display: flex;
-    align-items: center;
+    align-items: flex-start; /* IMPORTANTE */
     justify-content: center;
     margin-top: 10vh;
     margin-right: 10vh;
@@ -85,8 +85,10 @@
 }
 
 .paragrafo-produto {
-    display: flex;
-    justify-content: center;
-    margin-left: 26vh;
-    margin-top: 5vh;
+    margin-top: 5vh
+}
+
+.imagem-produto {
+    width: 70vh;
+    height: 60vh;
 }
