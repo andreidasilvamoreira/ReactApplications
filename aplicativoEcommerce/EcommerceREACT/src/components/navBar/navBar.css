@@ -90,6 +90,10 @@
     margin-right: 7vh;
 }
 
+.fa-cart-shopping:hover {
+    color: #3a3239;
+}
+
 .iconLupa {
   position: absolute;
   left: 3vh;

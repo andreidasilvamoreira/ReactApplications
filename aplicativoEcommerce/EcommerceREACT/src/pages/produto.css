@@ -1,0 +1,92 @@
+.div-pai-produtos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10vh;
+    margin-right: 10vh;
+    gap: 10vh;
+    font-family: "Roboto", sans-serif;
+}
+
+.titulo-icone {
+    align-items: center;
+}
+
+
+.icone-fav {
+    cursor: pointer;
+    color: red;
+    font-size: 3vh;
+}
+
+.icone-fav:active {
+    transform: scale(1.2);
+    transition: transform .15s ease;
+}
+
+.div-filho-produtos {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.botao-comprar {
+    background-color: white;
+    width: 25vh;
+    height: 7vh;
+    border: 1px solid rgb(116, 114, 114);
+    border-radius: 1vh;
+    font-size: 2.5vh;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.botao-comprar:hover {
+    background-color: #3a3239;
+    color: #d8b5b5;
+}
+
+.preco-produto {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.h2-preco-produto {
+    text-align: start;
+    font-weight: 500;
+    font-size: 4.5vh;
+}
+
+.botao-adicionar-carrinho {
+    background-color: white;
+    width: 35vh;
+    height: 7vh;
+    padding: 1vh;
+    border: 1px solid rgb(116, 114, 114);
+    border-radius: 1vh;
+    font-size: 2.4vh;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.botao-adicionar-carrinho:hover {
+    background-color: #3a3239;
+    color: #d8b5b5;
+    .fa-cart-plus {
+        color: #d8b5b5;
+    }
+}
+
+.div-botoes {
+    display: flex;
+    gap: 5vh;
+}
+
+.paragrafo-produto {
+    display: flex;
+    justify-content: center;
+    margin-left: 26vh;
+    margin-top: 5vh;
+}
