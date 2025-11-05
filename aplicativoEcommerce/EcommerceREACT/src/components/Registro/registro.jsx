@@ -52,7 +52,7 @@ export default function Registrar() {
       <form className="auth-box" onSubmit={handleSubmit}>
         <h1>Crie sua conta</h1>
 
-        <label>Usuário</label>
+        <label className="registro usuario">Usuário</label>
         <input
           type="text"
           value={name}
@@ -61,7 +61,7 @@ export default function Registrar() {
           required
         />
 
-        <label>Email</label>
+        <label className="registro email">Email</label>
         <input
           type="email"
           value={email}
@@ -70,7 +70,7 @@ export default function Registrar() {
           required
         />
 
-        <label>Senha</label>
+        <label className="registro senha">Senha</label>
         <input
           type="password"
           value={senha}
@@ -79,7 +79,7 @@ export default function Registrar() {
           required
         />
 
-        <label>Confirmar senha</label>
+        <label className="registro confirmar-senha">Confirmar senha</label>
         <input
           type="password"
           value={confirmaSenha}

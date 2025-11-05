@@ -26,7 +26,7 @@ export default function Home() {
     checkSession();
   }, []);
 
-  if (loading) return <p>Carregando...</p>;
+  if (loading) return <p className="carregando">Carregando...</p>;
 
   return (
     <>

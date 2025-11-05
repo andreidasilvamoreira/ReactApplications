@@ -3,14 +3,14 @@ import "./navBar.css";
 import { Link } from "react-router-dom";
 import iconLogin from "./../../assets/iconLogin.png";
 import lupa from "./../../assets/lupa.png";
-
+import logo from "./../../assets/logo.png"
 export default function NavBar() {
     const [pesquisa, setPesquisa] = useState("");
 
     return (
         <nav className="nav navbar">
             <div className="logo">
-                <Link className="logoAncora" to="/">Logo</Link>
+                <Link className="logoAncora" to="/"><img className="img-logo" src={logo} alt="logo" /></Link>
             </div>
 
             <div className="input-container">

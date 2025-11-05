@@ -45,3 +45,9 @@ h2 {
 .button-compre:hover {
   background-color: #fafafc;      
 }
+
+.carregando {
+    font-family: "Roboto", sans-serif;
+    margin-left: 10vh;
+    margin-top: 5vh;
+}

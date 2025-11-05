@@ -1,15 +1,12 @@
-/* Faz o container ocupar a tela inteira e centraliza o box */
 .login-container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     background: #ffffff;
-    /* fundo suave */
     font-family: Arial, sans-serif;
 }
 
-/* Caixa do formulário */
 .login-box {
     background: #fff;
     padding: 5vh 4vh;
@@ -20,16 +17,14 @@
     margin-bottom: 15vh;
 }
 
-/* Labels */
-.login-box label {
+.login {
     display: block;
     text-align: left;
     margin-bottom: 5px;
-    font-weight: bold;
+    font-weight: 200;
     color: #333;
 }
 
-/* Inputs */
 .login-box input {
     width: 100%;
     padding: 10px 12px;
@@ -45,7 +40,6 @@
     outline: none;
 }
 
-/* Botão */
 .login-box button {
     width: 100%;
     padding: 12px;
@@ -77,10 +71,6 @@
 .a:hover {
   text-decoration: underline;
   color: rgb(28, 112, 196);
-}
-
-label {
-    margin-left: 1vh;
 }
 
 .p-login {

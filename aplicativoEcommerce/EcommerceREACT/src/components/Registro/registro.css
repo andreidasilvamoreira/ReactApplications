@@ -3,41 +3,35 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: #f2f2f2;
+  background: #ffffff;
   font-family: Arial, sans-serif;
 }
 
-/* Caixa principal */
 .auth-box {
   background: #fff;
   padding: 5vh 4vh;
   border-radius: 1.5vh;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  width: 38vh;
+  width: 40vh;
   margin-bottom: 15vh;
   text-align: center;
 }
 
-/* Título */
 .auth-box h1 {
   color: #4a90e2;
   margin-bottom: 25px;
   font-size: 22px;
 }
 
-/* Labels */
 .auth-box label {
-  display: block;
+  display: flex;
   text-align: left;
-  margin-bottom: 6px;
-  font-weight: bold;
-  color: #333;
-  font-size: 14px;
+  font-weight: 200;
+  margin-bottom: 1vh;
 }
 
-/* Inputs */
 .auth-box input {
-  width: 90%;
+  width: 100%;
   padding: 10px 12px;
   margin-bottom: 18px;
   border: 1px solid #ccc;
@@ -51,7 +45,6 @@
   outline: none;
 }
 
-/* Botão */
 .auth-box button {
   width: 100%;
   padding: 12px;
@@ -69,7 +62,6 @@
   background: #357ABD;
 }
 
-/* Rodapé (link para login) */
 .auth-footer {
   margin-top: 15px;
   font-size: 14px;
@@ -109,11 +101,19 @@
   margin-top: 10px;          
 }
 
-label {
-  margin-left: 1.7vh;
+.registro{
+  margin-left: 4px;
 }
 
 .p-registro {
   font-size: 2vh;
 }
 
+.label-entrar {
+  color: #4a90e2;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 2vh;
+    margin-top: 2vh;
+    display: inline-block;
+}

@@ -38,7 +38,7 @@ export default function LoginForm() {
         <div className="login-container">
             <div className="login-box">
                 <form onSubmit={handleSubmit}>
-                    <label>Email</label>
+                    <label className="login label-email">Email</label>
                     <input
                         type="email"
                         value={email}
@@ -46,7 +46,7 @@ export default function LoginForm() {
                         placeholder="Digite seu E-mail"
                         required
                     />
-                    <label>Senha</label>
+                    <label className="login label-senha">Senha</label>
                     <input
                         type="password"
                         value={senha}
