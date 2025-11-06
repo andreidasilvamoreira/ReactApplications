@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { ProdutoContext } from "../context/produtoContext";
+import { ProdutoContext } from "../../context/produtoContext";
 import { useParams } from "react-router-dom";
 import "./produto.css"
 
@@ -29,7 +29,7 @@ export default function Produto() {
                     <div className="preco-produto"><p className="h2-preco-produto">R${produto.preco}</p></div>
                     <div className="div-botoes">
                         <button className="botao-comprar">Compre Agora</button>
-                        <button className="botao-adicionar-carrinho">Adicionar Ao Carrinho<i class="fa-solid fa-cart-plus"></i></button>
+                        <button className="botao-adicionar-carrinho">Adicionar Ao Carrinho<i className="fa-solid fa-cart-plus"></i></button>
                     </div>
                     <div className="paragrafo-produto"><p>{produto.descricao}</p></div>
 

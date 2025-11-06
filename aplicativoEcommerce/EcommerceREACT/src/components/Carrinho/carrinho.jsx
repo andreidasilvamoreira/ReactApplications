@@ -25,7 +25,6 @@ export default function Table() {
                                     <td>{item.quantidade}</td>
                                     <td>{pedido.total}</td>
                                     <td>R$ {pedido.total}</td>
-
                                 </tr>
                             ))
                         }

@@ -1,13 +1,13 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import NavBar from './components/navBar/navBar'
-import Home from './pages/Home'
+import Home from './pages/Home/Home'
 import Login from './pages/Login'
 import { PedidosProvider } from './context/pedidosContext'
 import CarrinhoADM from './PagesADM/CarrinhoADM/carrinhoADM'
 import Carrinho from './pages/carrinho'
 import Register from './pages/register'
 import { ProdutoProvider } from './context/produtoContext'
-import Produto from './pages/Produto'
+import Produto from './pages/Produto/Produto'
 
 function App() {
 

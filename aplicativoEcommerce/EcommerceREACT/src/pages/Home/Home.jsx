@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import "./home.css"
-import exemplo1 from "./../assets/exemplo1.png"
-import HomeProducts from "../components/Home-products/home-products";
+import exemplo1 from "./../../assets/exemplo1.png"
+import HomeProducts from "../../components/Home-products/home-products";
+
 export default function Home() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
