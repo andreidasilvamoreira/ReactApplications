@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AvaliacaoController;
+use App\Http\Controllers\CarrinhoController;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\CupomController;
 use App\Http\Controllers\EnderecoController;
@@ -75,6 +76,14 @@ Route::prefix('cupom')->group(function () {
     Route::get('/{id}', [CupomController::class, 'show']);
     Route::put('/{id}', [CupomController::class, 'update']);
     Route::delete('/{id}', [CupomController::class, 'destroy']);
+});
+
+Route::prefix('carrinho')->group(function () {
+    Route::get('/', [CarrinhoController::class, 'index']);
+    Route::post('/', [CarrinhoController::class, 'store']);
+    Route::get('/{id}', [CarrinhoController::class, 'show']);
+    Route::put('/fechar', [CarrinhoController::class, 'fechar']);
+    Route::delete('/{id}', [CarrinhoController::class, 'destroy']);
 });
 
 Route::post('/login', [AuthController::class, 'login']);
