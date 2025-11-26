@@ -78,7 +78,7 @@ Route::prefix('cupom')->group(function () {
     Route::delete('/{id}', [CupomController::class, 'destroy']);
 });
 
-Route::prefix('carrinho')->group(function () {
+Route::middleware('auth:sanctum')->prefix('carrinho')->group(function () {
     Route::get('/', [CarrinhoController::class, 'index']);
     Route::post('/', [CarrinhoController::class, 'store']);
     Route::get('/{id}', [CarrinhoController::class, 'show']);

@@ -11,10 +11,9 @@ class CarrinhoController extends Controller
 {
     public function index()
     {
-
         $carrinho = Carrinho::where('usuario_id', Auth::id())
             ->where('status', 'aberto')
-            ->with('itens.produto')
+            ->with('itensCarrinho.produto')
             ->first();
 
         if (!$carrinho) {
