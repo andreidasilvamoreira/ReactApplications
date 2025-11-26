@@ -6,6 +6,7 @@ use App\Http\Controllers\CarrinhoController;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\CupomController;
 use App\Http\Controllers\EnderecoController;
+use App\Http\Controllers\ItemCarrinhoController;
 use App\Http\Controllers\ItemPedidoController;
 use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\ProdutoController;
@@ -84,6 +85,14 @@ Route::middleware('auth:sanctum')->prefix('carrinho')->group(function () {
     Route::get('/{id}', [CarrinhoController::class, 'show']);
     Route::put('/fechar', [CarrinhoController::class, 'fechar']);
     Route::delete('/{id}', [CarrinhoController::class, 'destroy']);
+});
+
+Route::middleware('auth:sanctum')->prefix('itensCarrinho')->group(function () {
+    Route::get('/', [ItemCarrinhoController::class, 'index']);
+    Route::post('/', [ItemCarrinhoController::class, 'store']);
+    Route::get('/{id}', [ItemCarrinhoController::class, 'show']);
+    Route::put('/fechar', [ItemCarrinhoController::class, 'update']);
+    Route::delete('/{id}', [ItemCarrinhoController::class, 'destroy']);
 });
 
 Route::post('/login', [AuthController::class, 'login']);
