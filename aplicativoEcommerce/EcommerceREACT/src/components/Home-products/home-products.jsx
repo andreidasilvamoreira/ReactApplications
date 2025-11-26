@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 export default function HomeProducts() {
     const { produtos, erro } = useContext(ProdutoContext);
     const navigate = useNavigate()
-    if (erro) return <p>{erro}</p>
+    if (erro) return <p className="error-page">{erro}</p>
     if (!produtos.length) return <p>Carregando Produtos...</p>
     return (
         <div>

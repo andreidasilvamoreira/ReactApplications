@@ -13,7 +13,7 @@ export function PedidosProvider({children}) {
                 const data = await getPedidos();
                 setPedidos(data);
             } catch {
-                setErro("Não foi possível carregar os pedidos.");
+                setErro("Não foi possível carregar os pedidos...");
             }
         }
 

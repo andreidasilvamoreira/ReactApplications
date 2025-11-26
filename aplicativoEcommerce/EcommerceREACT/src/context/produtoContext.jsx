@@ -13,7 +13,7 @@ export function ProdutoProvider({ children }) {
                 const data = await getProdutos();
                 setProdutos(data)
             }catch {
-                setErro("Não foi possivel carregar os produtos.")
+                setErro("Não foi possivel carregar os produtos...")
             }
         }
 

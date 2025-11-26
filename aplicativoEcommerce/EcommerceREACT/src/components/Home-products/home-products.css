@@ -21,7 +21,7 @@
     flex: 1 1 22vh;
     max-width: 34vh;
   background-color: #f9f9f9;
-  flex: 1 1 calc(20% - 3vh); /* ocupa 20% da largura, com o gap compensado */
+  flex: 1 1 calc(20% - 3vh); 
   transition: all 0.2s ease;
   cursor: pointer;
 }
@@ -30,13 +30,11 @@
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
 }
 
-/* imagem */
 .produtoIMG {
   width: 100%;
   height: 25vh;
 }
 
-/* nome e preço */
 .produtoText {
   font-size: 1rem;
   font-weight: 500;
@@ -58,4 +56,9 @@
 
 li {
     width: 30vh;
+}
+.error-page {
+  margin-left: 16vh;
+  margin-top: 5vh;
+  color: #a72d2d;
 }
