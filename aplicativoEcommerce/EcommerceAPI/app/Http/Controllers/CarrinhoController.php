@@ -56,39 +56,6 @@ class CarrinhoController extends Controller
         ], 201);
     }
 
-    public function destroy($id)
-    {
-        $carrinho = ItemCarrinho::where('id', $id)
-            ->whereHas('carrinho', function ($q) {
-                $q->where('usuario_id', Auth::id());
-            })
-            ->first();
-
-        if (!$carrinho) {
-            return response()->json(['mensagem' => 'Item não encontrado'], 404);
-        }
-
-        $carrinho->delete();
-
-        return response()->json(['mensagem' => 'Item removido com sucesso!']);
-    }
-
-    public function show($id)
-    {
-        $carrinho = ItemCarrinho::where('id', $id)
-            ->whereHas('carrinho', function ($q) {
-                $q->where('usuario_id', Auth::id());
-            })
-            ->with('produto')
-            ->first();
-
-        if (!$carrinho) {
-            return response()->json(['mensagem' => 'Item não encontrado'], 404);
-        }
-
-        return response()->json($carrinho);
-    }
-
     public function fechar()
     {
 

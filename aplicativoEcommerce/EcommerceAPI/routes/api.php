@@ -82,9 +82,7 @@ Route::prefix('cupom')->group(function () {
 Route::middleware('auth:sanctum')->prefix('carrinho')->group(function () {
     Route::get('/', [CarrinhoController::class, 'index']);
     Route::post('/', [CarrinhoController::class, 'store']);
-    Route::get('/{id}', [CarrinhoController::class, 'show']);
     Route::put('/fechar', [CarrinhoController::class, 'fechar']);
-    Route::delete('/{id}', [CarrinhoController::class, 'destroy']);
 });
 
 Route::middleware('auth:sanctum')->prefix('itensCarrinho')->group(function () {
