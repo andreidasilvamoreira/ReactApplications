@@ -1,6 +1,140 @@
 .h1-carrinho {
     margin: 5vh auto;
-    margin-left: 9vh;
     font-family: "Roboto", sans-serif;
     margin-bottom: 0.2vh;
+    font-size: 5.5vh;
+    padding-left: 32vh;
+}
+
+.table-pai-de-todos {
+    display: flex;
+    justify-content: flex-start;
+    gap: 4vw;
+    padding-left: 32vh;
+}
+
+
+.cart-container {
+    width: 60%;
+}
+
+.cart-card {
+    border-radius: 14px;
+    border: 1px solid #eaeaea;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+}
+
+.cart-header-row {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    padding: 16px 20px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #555;
+    border-bottom: 1px solid #eee;
+}
+
+.cart-item-row {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    padding: 18px 20px;
+    align-items: center;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+.cart-item-row:hover {
+    background: #fafafa;
+}
+
+.cart-product {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.cart-product img {
+    width: 55px;
+    height: 55px;
+    border-radius: 8px;
+    background: #f5f5f5;
+    object-fit: cover;
+}
+
+.cart-price,
+.cart-total {
+    font-weight: 600;
+}
+
+.cart-qty {
+    padding: 1vh 1vh;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    background: #fff;
+    cursor: pointer;
+    width: 35%;
+}
+
+
+.finalizar-compra {
+    min-width: 22%;
+    border: 0.21vh solid #ddd;
+    padding: 2rem;
+    border-radius: 2vh;
+    font-family: "Roboto", sans-serif;
+}
+
+.h3-resumo {
+    font-size: 3vh;
+    font-weight: 500;
+    margin-top: 0;
+}
+
+.subtotal-div,
+.frete-div,
+.total-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.subtotal,
+.subtotal-valor,
+.frete,
+.frete-calcular {
+    font-size: 2.3vh;
+}
+
+.total-div {
+    font-size: 2.6vh;
+    font-weight: 500;
+}
+
+.precoTotal {
+    font-size: 2.6vh;
+}
+
+.linha-1,
+.linha-2 {
+    width: 94%;
+    margin: 0 auto;
+}
+
+.linha-1 {
+    border: 1px solid #f0efef;
+}
+
+.linha-2 {
+    border: 1px solid #c9c6c6;
+}
+
+.button-finalizar {
+    background-color: black;
+    color: white;
+    width: 97%;
+    height: 6vh;
+    border-radius: 1vh;
+    font-family: "Roboto", sans-serif;
+    font-size: 2.6vh;
 }
