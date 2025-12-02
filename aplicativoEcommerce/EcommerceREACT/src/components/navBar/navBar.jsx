@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import "./navBar.css";
 import { Link } from "react-router-dom";
 import iconLogin from "./../../assets/iconLogin.png";
 import lupa from "./../../assets/lupa.png";
 import logo from "./../../assets/logo.png"
+import { AuthContext } from "../../context/authContext";
+
 export default function NavBar() {
+    const { usuario, logout } = useContext(AuthContext);
     const [pesquisa, setPesquisa] = useState("");
 
     return (
@@ -24,15 +27,30 @@ export default function NavBar() {
             </div>
 
             <div className="nav-opcoes">
-                <Link to="/login" className="login">
-                    <div className="login-img">
-                        <img src={iconLogin} alt="Login" className="icon-login" />
-                        Login
+                {usuario ? (
+                    <div className="login">
+                        <div className="login-img">
+                            <img src={iconLogin} alt="Usuário" className="icon-login" />
+                            {usuario.name}
+                        </div>
                     </div>
-                </Link>
+                ) : (
+                    <Link to="/login" className="login">
+                        <div className="login-img">
+                            <img src={iconLogin} alt="Login" className="icon-login" />
+                            Login
+                        </div>
+                    </Link>
+                )}
+
                 <Link to="/carrinho">
                     <i className="fa-solid fa-cart-shopping"></i>
                 </Link>
+                {usuario && (
+                    <button onClick={logout} className="btn-logout">
+                        Sair
+                    </button>
+                )}
             </div>
         </nav>
     );

@@ -27,8 +27,8 @@
 .nav-opcoes {
     display: flex;
     justify-content: space-between;
-    gap: 7vh;
-    margin-right: 7vh;
+    gap: 4vh;
+    margin-right: 2vh;
     align-items: center;
     font-weight: 00;
 }

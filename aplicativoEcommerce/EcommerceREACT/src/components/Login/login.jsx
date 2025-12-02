@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useNavigate, Link } from "react-router-dom"
+import { AuthContext } from "../../context/authContext";
 import './login.css';
 
 export default function LoginForm() {
@@ -7,6 +8,7 @@ export default function LoginForm() {
     const [senha, setSenha] = useState("");
     const [erro, setErro] = useState("");
     const navigate = useNavigate()
+    const { setUsuario } = useContext(AuthContext);
 
     async function handleSubmit(e) {
         e.preventDefault();
@@ -28,7 +30,8 @@ export default function LoginForm() {
             }
             const data = await response.json();
             console.log("Login realizado:", data);
-            navigate('/home')
+            setUsuario(data.user);
+            navigate('/')
         } catch (error) {
             setErro(error.message);
         }
@@ -54,7 +57,8 @@ export default function LoginForm() {
                         placeholder="Digite sua senha"
                         required
                     />
-                    <button type="submit">Entrar</button>
+                    <button type="submit" >Entrar</button>
+                    {erro && <div className="erro">{erro}</div>}
                     <div className="registre-se">
                         <p className="p-login">Não tem uma conta?</p>
                         <a className="a" href="/register">Registre-se</a>
