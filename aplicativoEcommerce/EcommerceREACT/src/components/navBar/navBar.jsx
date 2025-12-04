@@ -1,15 +1,19 @@
 import { useState, useContext } from "react";
 import "./navBar.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import iconLogin from "./../../assets/iconLogin.png";
 import lupa from "./../../assets/lupa.png";
 import logo from "./../../assets/logo.png"
 import { AuthContext } from "../../context/authContext";
 
 export default function NavBar() {
+    const navigate = useNavigate();
     const { usuario, logout } = useContext(AuthContext);
     const [pesquisa, setPesquisa] = useState("");
-
+    function doubleFunction() {
+        logout(),
+        navigate("/login")
+    }
     return (
         <nav className="nav navbar">
             <div className="logo">
@@ -47,7 +51,7 @@ export default function NavBar() {
                     <i className="fa-solid fa-cart-shopping"></i>
                 </Link>
                 {usuario && (
-                    <button onClick={logout} className="btn-logout">
+                    <button onClick={doubleFunction} className="botao-logout">
                         Sair
                     </button>
                 )}

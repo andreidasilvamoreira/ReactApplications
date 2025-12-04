@@ -34,21 +34,21 @@
 }
 
 .nav-input {
-  width: 100%;
-  border-radius: 3vh;
-  height: 6vh;
-  border: 1px solid rgb(116, 114, 114);
-  font-size: 2vh;
-  padding-left: 6vh;
-  padding-right: 5vh; 
-  outline: none;
-  transition: all 0.3s ease;
+    width: 100%;
+    border-radius: 3vh;
+    height: 6vh;
+    border: 1px solid rgb(116, 114, 114);
+    font-size: 2vh;
+    padding-left: 6vh;
+    padding-right: 5vh;
+    outline: none;
+    transition: all 0.3s ease;
 }
 
 .input-container {
-  position: relative;
-  width: 60%;
-  margin-right: 10vh;
+    position: relative;
+    width: 60%;
+    margin-right: 10vh;
 }
 
 .nav-input:focus {
@@ -97,18 +97,36 @@
 }
 
 .iconLupa {
-  position: absolute;
-  left: 3vh;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 2vh;
-  height: 2vh;
-  cursor: pointer;
-  opacity: 0.7;
-  transition: opacity 0.3s;
+    position: absolute;
+    left: 3vh;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 2vh;
+    height: 2vh;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.3s;
 }
 
 
 .iconLupa:hover {
-  opacity: 1;
+    opacity: 1;
+}
+
+.botao-logout {
+    background: none;
+    border: 1px solid #8a8a8a;
+    color: #ffffff;
+    background-color: #8a8a8a;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.botao-logout:hover {
+    background: #363636;
+    border: 1px solid #363636;
+    color: white;
 }
