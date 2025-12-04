@@ -61,14 +61,14 @@
     background-color: white;
 }
 
-.a {
+.a-registre-se {
     color: #4a90e2;
     text-decoration: none;
     font-weight: bold;
     font-size: 1.8vh;
 }
 
-.a:hover {
+.a-registre-se:hover {
   text-decoration: underline;
   color: rgb(28, 112, 196);
 }

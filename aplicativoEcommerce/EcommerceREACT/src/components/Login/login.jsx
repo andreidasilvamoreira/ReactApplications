@@ -46,7 +46,7 @@ export default function LoginForm() {
         <div className="login-container">
             <div className="login-box">
                 <form onSubmit={handleSubmit}>
-                    <label>Email</label>
+                    <label className="login">Email</label>
                     <input
                         type="email"
                         value={email}
@@ -55,7 +55,7 @@ export default function LoginForm() {
                         required
                     />
 
-                    <label>Senha</label>
+                    <label className="login">Senha</label>
                     <input
                         type="password"
                         value={senha}
@@ -69,8 +69,8 @@ export default function LoginForm() {
                     {erro && <div className="erro">{erro}</div>}
 
                     <div className="registre-se">
-                        <p>Não tem uma conta?</p>
-                        <a href="/register">Registre-se</a>
+                        <p className="p-login">Não tem uma conta?</p>
+                        <a href="/register" className="a-registre-se">Registre-se</a>
                     </div>
                 </form>
             </div>
