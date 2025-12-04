@@ -1,14 +1,16 @@
 import { useState, useContext } from "react";
-import { useNavigate, Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { AuthContext } from "../../context/authContext";
 import './login.css';
 
 export default function LoginForm() {
+
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
     const [erro, setErro] = useState("");
-    const navigate = useNavigate()
-    const { setUsuario } = useContext(AuthContext);
+    const navigate = useNavigate();
+
+    const { setUsuario, setToken } = useContext(AuthContext);
 
     async function handleSubmit(e) {
         e.preventDefault();
@@ -22,16 +24,19 @@ export default function LoginForm() {
                     email: email,
                     senha: senha,
                 }),
-                credentials: "include",
             });
 
             if (!response.ok) {
                 throw new Error("Credenciais inválidas");
             }
+
             const data = await response.json();
-            console.log("Login realizado:", data);
             setUsuario(data.user);
-            navigate('/')
+            localStorage.setItem("token", data.token);
+            setToken(data.token);
+
+            navigate("/");
+
         } catch (error) {
             setErro(error.message);
         }
@@ -41,7 +46,7 @@ export default function LoginForm() {
         <div className="login-container">
             <div className="login-box">
                 <form onSubmit={handleSubmit}>
-                    <label className="login label-email">Email</label>
+                    <label>Email</label>
                     <input
                         type="email"
                         value={email}
@@ -49,7 +54,8 @@ export default function LoginForm() {
                         placeholder="Digite seu E-mail"
                         required
                     />
-                    <label className="login label-senha">Senha</label>
+
+                    <label>Senha</label>
                     <input
                         type="password"
                         value={senha}
@@ -57,11 +63,14 @@ export default function LoginForm() {
                         placeholder="Digite sua senha"
                         required
                     />
-                    <button type="submit" >Entrar</button>
+
+                    <button type="submit">Entrar</button>
+
                     {erro && <div className="erro">{erro}</div>}
+
                     <div className="registre-se">
-                        <p className="p-login">Não tem uma conta?</p>
-                        <a className="a" href="/register">Registre-se</a>
+                        <p>Não tem uma conta?</p>
+                        <a href="/register">Registre-se</a>
                     </div>
                 </form>
             </div>

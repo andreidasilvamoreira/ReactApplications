@@ -1,24 +1,27 @@
 import { PedidoContext } from '../../context/pedidosContext'
 import { useContext, useState, useEffect } from 'react'
+import { AuthContext } from '../../context/authContext'
 import './carrinho.css'
 import { getItensCarrinho } from '../../api/itensCarrinho'
 
 export default function Table() {
     const [ItensCarrinhos, setItensCarrinho] = useState([]);
     const { pedidos } = useContext(PedidoContext)
+    const { token } = useContext(AuthContext);
+
 
     useEffect(() => {
         async function carregarItens() {
             try {
-                const resposta = await getItensCarrinho();
-                setItensCarrinho(resposta.data); 
+                const resposta = await getItensCarrinho(token);
+                setItensCarrinho(resposta); 
             } catch (erro) {
                 console.error("Erro ao carregar itens do carrinho:", erro);
             }
         }
-
         carregarItens();
-    }, []);
+    }, [token]);
+
     return (
         <>
             <h1 className='h1-carrinho'>🛒 Carrinho</h1>
@@ -94,6 +97,7 @@ export default function Table() {
                     <div>
                         <div className='total-div'><p>Total</p> <p className='precoTotal'>R$69,90</p></div>
                         <button className='button-finalizar'>Finalizar compra</button>
+                        
                     </div>
                 </div>
             </div>
