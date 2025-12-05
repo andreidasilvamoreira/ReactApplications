@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./registro.css";
+import { registro } from "../../api/auth";
 
 export default function Registrar() {
   const [name, setName] = useState("");
@@ -20,15 +21,7 @@ export default function Registrar() {
     }
 
     try {
-      const response = await fetch("http://localhost:8000/api/register", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name,
-          email,
-          senha,
-        }),
-      });
+      const response = await registro(name, email, senha)
 
       const data = await response.json();
 

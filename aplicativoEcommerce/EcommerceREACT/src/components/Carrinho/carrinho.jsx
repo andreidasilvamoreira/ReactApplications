@@ -14,13 +14,20 @@ export default function Table() {
         async function carregarItens() {
             try {
                 const resposta = await getItensCarrinho(token);
-                setItensCarrinho(resposta); 
+                setItensCarrinho(resposta);
             } catch (erro) {
                 console.error("Erro ao carregar itens do carrinho:", erro);
             }
         }
         carregarItens();
     }, [token]);
+
+    const totalCarrinho = ItensCarrinhos.reduce((soma, item) => {
+        const precoUnitario = Number(item.produto?.preco || 0);
+        const quantidade = Number(item.quantidade || 1);
+        return soma + precoUnitario * quantidade;
+    }, 0);
+
 
     return (
         <>
@@ -41,6 +48,23 @@ export default function Table() {
                             const precoUnitario = Number(item.produto?.preco || 0);
                             const quantidade = Number(item.quantidade || 1);
                             const total = precoUnitario * quantidade;
+
+                            const handleChangeQuantidade = async (e) => {
+                                const novaQtd = Number(e.target.value);
+
+                                try {
+                                    // Chama a API para atualizar no backend
+                                    await updateItem(item.id, novaQtd, token);
+
+                                    // Atualiza o estado local para refletir a mudança imediatamente
+                                    setItensCarrinhos(prev =>
+                                        prev.map(i => i.id === item.id ? { ...i, quantidade: novaQtd } : i)
+                                    );
+                                } catch (err) {
+                                    console.error("Erro ao atualizar item:", err);
+                                    alert("Não foi possível atualizar a quantidade.");
+                                }
+                            };
 
                             return (
                                 <div className="cart-item-row" key={item.id}>
@@ -87,7 +111,7 @@ export default function Table() {
                     <div className='linha-1'></div>
                     <div className='valores-finais'>
                         <div className='subtotal-div'>
-                            <p className='subtotal'>Subtotal</p><p className='subtotal-valor'>R$69,90</p>
+                            <p className='subtotal'>Subtotal</p><p className='subtotal-valor'>R$ {totalCarrinho.toFixed(2)}</p>
                         </div>
                         <div className='frete-div'>
                             <p className='frete'>Frete</p><p className='frete-calcular'>calcular</p>
@@ -95,9 +119,9 @@ export default function Table() {
                     </div>
                     <div className='linha-2'></div>
                     <div>
-                        <div className='total-div'><p>Total</p> <p className='precoTotal'>R$69,90</p></div>
+                        <div className='total-div'><p>Total</p> <p className='precoTotal'>R$ {totalCarrinho.toFixed(2)}</p></div>
                         <button className='button-finalizar'>Finalizar compra</button>
-                        
+
                     </div>
                 </div>
             </div>

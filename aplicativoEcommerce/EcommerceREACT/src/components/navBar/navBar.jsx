@@ -8,11 +8,18 @@ import { AuthContext } from "../../context/authContext";
 
 export default function NavBar() {
     const navigate = useNavigate();
-    const { usuario, logout } = useContext(AuthContext);
+    const { usuario, logout, token } = useContext(AuthContext);
     const [pesquisa, setPesquisa] = useState("");
     function doubleFunction() {
         logout(),
         navigate("/login")
+    }
+    function handleCarrinhoClick() {
+        if (!token) {
+            navigate("/login");
+            return;
+        }
+        navigate("/carrinho");
     }
     return (
         <nav className="nav navbar">
@@ -47,9 +54,9 @@ export default function NavBar() {
                     </Link>
                 )}
 
-                <Link to="/carrinho">
+                <button onClick={handleCarrinhoClick} className="icone-carrinho">
                     <i className="fa-solid fa-cart-shopping"></i>
-                </Link>
+                </button>
                 {usuario && (
                     <button onClick={doubleFunction} className="botao-logout">
                         Sair

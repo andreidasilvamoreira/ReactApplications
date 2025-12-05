@@ -2,6 +2,7 @@ import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom"
 import { AuthContext } from "../../context/authContext";
 import './login.css';
+import { login } from "../../api/auth";
 
 export default function LoginForm() {
 
@@ -17,20 +18,7 @@ export default function LoginForm() {
         setErro("");
 
         try {
-            const response = await fetch("http://localhost:8000/api/login", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    email: email,
-                    senha: senha,
-                }),
-            });
-
-            if (!response.ok) {
-                throw new Error("Credenciais inválidas");
-            }
-
-            const data = await response.json();
+            const data = await login(email, senha);
             setUsuario(data.user);
             localStorage.setItem("token", data.token);
             setToken(data.token);
